@@ -1,4 +1,4 @@
-# Neural_dynamics_of_visibility
+# Neural dynamics of visibility
 Run each of these codes for the desired plot!
 
 Plot1: plot grand total results and MDS <br>
