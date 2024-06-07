@@ -1,12 +1,3 @@
-# Neural dynamics of visibility
-Run each of these codes for the desired plot!
+# rapid_con_perc
+Code for the paper "Unveiling the neural dynamics of conscious perception in rapid object recognition" (SC Motlagh, MF Joanisse, B Wang, Y Mohsenzadeh)
 
-Plot1: plot grand total results and MDS <br>
-Plot2: plot decoding curve and temporal generalization matrix for general visible vs. invisible condition <br>
-Plot3: plot decoding curve and temporal generalization matrix for visible and invisible conditions using single target images <br>
-Plot4: plot decoding curve and temporal generalization matrix for general visible vs. invisible condition for face/object category <br>
-Plot5: 
-
-Run Bootstrap_VisibleInvisible, which uses bootstrap_visible_invisible function, to find the decoding/temporal generalization matrix for Visible condition vs. Invisible condition (so you have 2 classes overall)!
-
-Run Bootstrap_SingleTarget, which uses boorstrap_single_target function, to find the decoding/temporal generalization matrix for Visible and invisible condition of each target image (so you around 80 classes overall)!
