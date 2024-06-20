@@ -1,8 +1,8 @@
-function [] = id_cat_classification(num_of_participant, varargin)
+function [results] = id_cat_classification(num_of_participant, varargin)
 
 %% parse inputs
 p = inputParser;
-addParameter(p, 'results_filename', 'results.mat', @ischar);
+addParameter(p, 'results_filename', 'results_cat.mat', @ischar);
 addParameter(p, 'trial_directory', pwd, @ischar);
 addParameter(p, 'number_of_repetitions', 100, @isnumeric);
 addParameter(p, 'number_of_permutations', 100, @isnumeric);
@@ -102,6 +102,6 @@ avg_decoding = squeeze(mean(decoding,1));
 
 %% save results
 results.id_cat_timeseries{num_of_participant} = avg_decoding;
-save('results.mat','results');
+save(results_filename,'results');
 
 end
