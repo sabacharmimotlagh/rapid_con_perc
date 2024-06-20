@@ -97,7 +97,7 @@ for rep=1:num_of_rep
     Labels = sprintfc('%02d',Labels);
 
     fprintf('Repetition number %d \r', rep);
-    d_singleimage = fl_decodesvm(Data,Labels,'numpermutation',50,'verbose',10,'kfold',5, 'method', 'temporalgen');
+    d_singleimage = fl_decodesvm(Data,Labels,'numpermutation',num_of_permut,'verbose',10,'kfold',5, 'method', 'temporalgen');
     decoding = d_singleimage.d;
 
     cd(recognized_tempgen_dir);
@@ -121,7 +121,7 @@ for rep=1:num_of_rep
     Labels = sprintfc('%02d',Labels);
 
     fprintf('repetition number %d \r', i);
-    d_singleimage = fl_decodesvm(Data,Labels,'numpermutation',50,'verbose',10,'kfold',5, 'method', 'temporalgen');
+    d_singleimage = fl_decodesvm(Data,Labels,'numpermutation',num_of_permut,'verbose',10,'kfold',5, 'method', 'temporalgen');
     decoding = d_singleimage.d;
 
     cd(unrecognized_tempgen_dir);
