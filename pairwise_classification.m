@@ -5,11 +5,13 @@ p = inputParser;
 addParameter(p, 'results_filename', 'results.mat', @ischar);
 addParameter(p, 'trial_directory', pwd, @ischar);
 addParameter(p, 'number_of_repetitions', 100, @isnumeric);
+addParameter(p, 'number_of_permutations', 100, @isnumeric);
 parse(p, varargin{:});
 
 results_filename = p.Results.results_filename;
 trial_directory = p.Results.trial_directory;
 num_of_rep = p.Results.number_of_repetitions;
+num_of_permut = p.Results.number_of_permutations;
 
 % Check if results file exists and load it
 if isfile(results_filename)
@@ -31,10 +33,10 @@ load(d(3).name);
 data = cell(1,80);
 label = cell(1,80);
 
-for rep=5:length(d)
-    name = regexp(d(rep).name,'_','split');
-    if ~any(strcmp(BadTrials,d(rep).name))    % if the trial was not a bad trial, add the trial to the data
-        load(d(rep).name);
+for f=5:length(d)
+    name = regexp(d(f).name,'_','split');
+    if ~any(strcmp(BadTrials,d(f).name))    % if the trial was not a bad trial, add the trial to the data
+        load(d(f).name);
         data{1,str2double(name{1,2})} = cat(3,data{1,str2double(name{1,2})},reshape(F(ChannelFlag(1:64) == 1,:),[size(F(ChannelFlag(1:64) == 1,:)), 1]));
         label{1,str2double(name{1,2})} = cat(2, label{1,str2double(name{1,2})}, [str2double(name{1,2})]);
     end
@@ -76,7 +78,7 @@ for rep=1:num_of_rep
     Labels = sprintfc('%02d',Labels);
 
     fprintf('Repetition number %d \r', rep);
-    d_singleimage{rep} = fl_decodesvm(Data,Labels,'numpermutation',100,'verbose',10,'kfold',5);
+    d_singleimage{rep} = fl_decodesvm(Data,Labels,'numpermutation',num_of_permut,'verbose',10,'kfold',5);
     decoding(rep,:,:) = d_singleimage{rep}.d;
 end
 
