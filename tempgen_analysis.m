@@ -127,3 +127,4 @@ for rep=1:num_of_rep
     cd(unrecognized_tempgen_dir);
     save([filename '.mat'],'decoding');
 end
+end

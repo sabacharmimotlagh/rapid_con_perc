@@ -87,3 +87,4 @@ avg_decoding = squeeze(mean(decoding,1));
 %% save the single subjects result in the average matrix
 results.recog_unrecog_timeseries{num_of_participant} = avg_decoding;
 save('results.mat','results');
+end
